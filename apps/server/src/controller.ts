@@ -57,6 +57,7 @@ export const enginesController = async (ctx: Context) => {
   const bingKey = getConfig('BING_SEARCH_KEY');
   const exaKey = getConfig('EXA_KEY');
   const bochaKey = getConfig('BOCHA_KEY');
+  const specstreamKey = getConfig('SPECSTREAM_KEY');
   const availableEngines: { code: TSearchEngine; name: string }[] = [];
   const SEARXNG_URL = getConfig('SEARXNG_HOSTNAME');
   if (SEARXNG_URL) availableEngines.push({ code: 'SEARXNG', name: 'SearXNG' });
@@ -66,6 +67,7 @@ export const enginesController = async (ctx: Context) => {
   if (zhipuKey) availableEngines.push({ code: 'ZHIPU', name: 'Zhipu' });
   if (exaKey) availableEngines.push({ code: 'EXA', name: 'Exa' }); // Exa - fast and accurate web search API for AI
   if (bochaKey) availableEngines.push({ code: 'BOCHA', name: 'Bocha' });
+  if (specstreamKey) availableEngines.push({ code: 'SPECSTREAM', name: 'SpecStream' });
   // Sogou are always available
   availableEngines.push({ code: 'SOGOU', name: 'Sogou' });
   ctx.body = {
